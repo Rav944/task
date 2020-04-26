@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Abbreviate my url</title>
+</head>
+<body>
+{% if data.results %}
+    {% if data.results.short_version %}
+        <h3>Your abbreviation is : {{ data.results.short_version }}</h3>
+    {% else %}
+        <h3>{{ data.results }}</h3>
+    {% endif %}
+{% endif %}
+    <form method="post">
+        <label for="url">Your Url: </label>
+        <input id="url" type="text" name="url">
+        {% csrf_token %}
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>
